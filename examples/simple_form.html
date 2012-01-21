@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Simple form validation demo</title>
+</head>
+
+<script src="../formvalidator.js"></script>
+
+<script>
+    function onready() {
+        validator = new FormValidator("my_form");
+
+        validator.addErrorHandler("color_label"); // Highlight labels (red by default)
+        validator.addErrorHandler("one", "errors"); // Show errors in block <div id="errors">
+
+        // Username validation
+        validator.addValidation("username", "req", "Username required");
+        validator.addValidation("username", "min-len=5", "Username minimum length = 20");
+        validator.addValidation("username", "max-len=20", "Username maximum length = 20");
+
+        // Email validation
+        validator.addValidation("email", "req", "Email required");
+        validator.addValidation("email", "email", "This is SPAR^W not valid email");
+
+        // Text validation
+        validator.addValidation("text", "req", "Text required");
+    }
+</script>
+
+<body onload="onready();">
+    <div id="errors"></div>
+
+    <form action="#" method="post" id="my_form" onsubmit="return validator.validate(); // that's not so good, dude">
+        <p>
+            <label for="id_username">Name</label>
+            <input type="text" name="username" id="id_username" />
+        </p>
+
+        <p>
+            <label for="id_email">E-mail</label>
+            <input type="text" name="email" id="id_email" />
+        </p>
+
+        <p>
+            <label for="id_text">Text</label>
+            <textarea rows="2" cols="10" name="text" id="id_text"></textarea>
+        </p>
+
+        <p>
+            <input type="submit" />
+        </p>
+    </form>
+</body>
+</html>

@@ -1,0 +1,32 @@
+FormValidator for client form validation in pure JavaScript (without jQuery and others).
+
+You can find examples in the same name directory. I think they will be clear to all.
+
+LGPL License.
+
+Features (version 1.0):
+
+- Pure client-side form validation
+
+- Multiple validators on one form
+
+- Multiple validation rules on one field
+- - req - required
+- - int - integer
+- - float - real number
+- - min-len - minimum length
+- - max-len
+- - min-val - minimum numeric value
+- - max-val
+- - email
+- - regexp - user-defined regular expression
+- - You can define own validation function
+
+- Multiple error display types
+- - alert - show alert on each error (good only for debug)
+- - color - highlight borders of input
+- - color_label - highlight label text
+- - flow - create block near input and show error dynamically
+- - one - how errors in one general block
+- - block - show errors in special block for each input (block id = <field_name>_errors)
+- - custom - user-defined callback function
