@@ -351,5 +351,6 @@ function email_validator(field) {
 }
 
 function regexp_validator(field, rule) {
-    return rule["param"].text(field.value.trim());
+    var re = new RegExp(rule["param"], "ig");
+    return re.test(field.value.trim());
 }
